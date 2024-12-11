@@ -1,0 +1,23 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class HealthCheckerTest {
+
+    @Test
+    public void testCases() {
+        // Test Case ID: 101 - Normal blood pressure and blood sugar
+        assertEquals("Normal", HealthChecker.classifyOverall(118, 85));
+
+        // Test Case ID: 102 - Blood pressure at risk, normal blood sugar
+        assertEquals("Risk", HealthChecker.classifyOverall(130, 98));
+
+        // Test Case ID: 103 - Blood pressure and blood sugar both at Illness Level 1
+        assertEquals("Illness Level 1", HealthChecker.classifyOverall(145, 128));
+
+        // Test Case ID: 104 - Blood pressure and blood sugar both at Illness Level 2
+        assertEquals("Illness Level 2", HealthChecker.classifyOverall(165, 170));
+
+        // Test Case ID: 105 - Blood pressure and blood sugar both at Illness Level 3
+        assertEquals("Illness Level 3", HealthChecker.classifyOverall(190, 195));
+    }
+}
