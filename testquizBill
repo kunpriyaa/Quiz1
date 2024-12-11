@@ -5,9 +5,9 @@ public class Bill {
         int roomCost;
 
         if ("S".equals(roomType)) {
-            roomCost = 1500; // ราคาห้อง S
+            roomCost = 1500;
         } else if ("D".equals(roomType)) {
-            roomCost = 2000; // ราคาห้อง D
+            roomCost = 2000; 
         } else {
             return "Invalid Room Type"; 
         }
@@ -19,14 +19,14 @@ public class Bill {
     
     private static int calculateWaterBill(int currentWaterMeter, int lastWaterMeter) {
         if (currentWaterMeter > lastWaterMeter) {
-            return (currentWaterMeter - lastWaterMeter) * 5; // 
+            return (currentWaterMeter - lastWaterMeter) * 5;
         }
         return 0; // 
     }
 
     private static int calculateElectBill(int currentElectMeter, int lastElectMeter) {
         if (currentElectMeter > lastElectMeter) {
-            return (currentElectMeter - lastElectMeter) * 6; //
+            return (currentElectMeter - lastElectMeter) * 6;
         }
         return 0; 
     }
