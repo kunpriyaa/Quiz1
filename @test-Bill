@@ -1,24 +1,26 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
- 
-public class HealthCheckerTest {
- 
- 
-    @Test
-    public void testCases() {
-        // Test Case ID: 1
-        assertEquals("Normal", HealthChecker.classifyOverall(120, 90));
- 
-        // Test Case ID: 2
-        assertEquals("Risk", HealthChecker.classifyOverall(130, 95));
- 
-        // Test Case ID: 3
-        assertEquals("Illness Level 1", HealthChecker.classifyOverall(145, 110));
- 
-        // Test Case ID: 4
-        assertEquals("Illness Level 2", HealthChecker.classifyOverall(160, 160));
- 
-        // Test Case ID: 5
-        assertEquals("Illness Level 3", HealthChecker.classifyOverall(185, 190));
-    }
+
+public class Bill_Test {
+
+    @Test
+    public void testCases() {
+        // Test Case ID: 1 - Room "S" with low usage
+        assertEquals("Your total bill is: 1030", Bill.calculateResultBill(55, 50, 25, 20, "S"));
+
+        // Test Case ID: 2 - Room "D" with high usage
+        assertEquals("Your total bill is: 2900", Bill.calculateResultBill(300, 100, 200, 50, "D"));
+
+        // Test Case ID: 3 - Meter readings less than previous
+        assertEquals("Your total bill is: 0", Bill.calculateResultBill(50, 100, 20, 30, "S"));
+
+        // Test Case ID: 4 - Invalid room type
+        assertEquals("Invalid Room Type", Bill.calculateResultBill(0, 0, 0, 0, "A"));
+
+        // Test Case ID: 5 - Room "D" with no usage
+        assertEquals("Your total bill is: 2000", Bill.calculateResultBill(100, 100, 50, 50, "D"));
+
+        // Test Case ID: 6 - Room "S" with maximum usage
+        assertEquals("Your total bill is: 3500", Bill.calculateResultBill(500, 0, 500, 0, "S"));
+    }
 }
