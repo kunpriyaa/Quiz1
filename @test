@@ -1,0 +1,24 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+ 
+public class HealthCheckerTest {
+ 
+ 
+    @Test
+    public void testCases() {
+        // Test Case ID: 1
+        assertEquals("Normal", HealthChecker.classifyOverall(120, 90));
+ 
+        // Test Case ID: 2
+        assertEquals("Risk", HealthChecker.classifyOverall(130, 95));
+ 
+        // Test Case ID: 3
+        assertEquals("Illness Level 1", HealthChecker.classifyOverall(145, 110));
+ 
+        // Test Case ID: 4
+        assertEquals("Illness Level 2", HealthChecker.classifyOverall(160, 160));
+ 
+        // Test Case ID: 5
+        assertEquals("Illness Level 3", HealthChecker.classifyOverall(185, 190));
+    }
+}
