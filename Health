@@ -1,0 +1,34 @@
+public class HealthChecker {
+
+    public static String classifyOverall(int bp, int sugar) {
+        String bpClassification = classifyBloodPressure(bp);
+        String sugarClassification = classifyBloodSugar(sugar);
+
+        // Return the highest severity level between blood pressure and blood sugar
+        return getHighestSeverity(bpClassification, sugarClassification);
+    }
+
+    private static String classifyBloodPressure(int bp) {
+        if (bp <= 120) return "Normal";
+        if (bp <= 139) return "Risk";
+        if (bp <= 159) return "Illness Level 1";
+        if (bp <= 179) return "Illness Level 2";
+        return "Illness Level 3";
+    }
+
+    private static String classifyBloodSugar(int sugar) {
+        if (sugar < 100) return "Normal";
+        if (sugar <= 125) return "Risk";
+        if (sugar <= 154) return "Illness Level 1";
+        if (sugar <= 182) return "Illness Level 2";
+        return "Illness Level 3";
+    }
+
+    private static String getHighestSeverity(String bp, String sugar) {
+        String[] levels = {"Normal", "Risk", "Illness Level 1", "Illness Level 2", "Illness Level 3"};
+        int bpLevel = java.util.Arrays.asList(levels).indexOf(bp);
+        int sugarLevel = java.util.Arrays.asList(levels).indexOf(sugar);
+
+        return levels[Math.max(bpLevel, sugarLevel)];
+    }
+}
