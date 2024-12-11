@@ -1,44 +1,43 @@
 public class Bill {
-
-    public static int waterM, ElectM;
-    public static int resultBill;
-    public static int currentWaterMeter, lastWaterMeter;
-    public static int currentElectMeter, lastElectMeter;
-
-    public static int calculateWaterBill() {
-        if (currentWaterMeter > lastWaterMeter) {
-            waterM = (currentWaterMeter - lastWaterMeter) * 5;
-        }
-        return waterM;
-    }
-
-    public static int calculateElectBill() {
-        if (currentElectMeter > lastElectMeter) {
-            ElectM = (currentElectMeter - lastElectMeter) * 6;
-        }
-        return ElectM;
-    }
-
-    public static String calculateResultBill(String roomType) {
-        // Check if roomType is valid
-        if (roomType.equals("S")) {
-            resultBill = 1500 + calculateElectBill() + calculateWaterBill();
-        } else if (roomType.equals("D")) {
-            resultBill = 2000 + calculateElectBill() + calculateWaterBill();
-        } else {
-            // Handle invalid room type
-            return "กรอกห้องผิด: Room type must be 'S' or 'D'";
-        }
-        return "Your bill is: " + resultBill;
-    }
-
-    public static void main(String[] args) {
-        currentElectMeter = 500;
-        lastElectMeter = 0;
-        currentWaterMeter = 500;
-        lastWaterMeter = 0;
-
-        System.out.println(calculateResultBill("S")); 
-    }
+ 
+    public static int waterM, ElectM;
+    public static int resultBill;
+    public static int currentWaterMeter, lastWaterMeter;
+    public static int currentElectMeter, lastElectMeter;
+ 
+    public static int calculateWaterBill() {
+        if (currentWaterMeter > lastWaterMeter) {
+            waterM = (currentWaterMeter - lastWaterMeter) * 5;
+        }
+        return waterM;
+    }
+ 
+    public static int calculateElectBill() {
+        if (currentElectMeter > lastElectMeter) {
+            ElectM = (currentElectMeter - lastElectMeter) * 6;
+        }
+        return ElectM;
+    }
+ 
+    public static String calculateResultBill(String roomType) {
+        // Check if roomType is valid
+        if (roomType.equals("S")) {
+            resultBill = 1500 + calculateElectBill() + calculateWaterBill();
+        } else if (roomType.equals("D")) {
+            resultBill = 2000 + calculateElectBill() + calculateWaterBill();
+        } else {
+            // Handle invalid room type
+            return "กรอกห้องผิด: Room type must be 'S' or 'D'";
+        }
+        return "Your bill is: " + resultBill;
+    }
+ 
+    public static void main(String[] args) {
+        currentElectMeter = 500;
+        lastElectMeter = 0;
+        currentWaterMeter = 500;
+        lastWaterMeter = 0;
+ 
+        System.out.println(calculateResultBill("S")); 
+    }
 }
- 
